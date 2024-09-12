@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  install:
+    cmds:
+      - go install go.uber.org/nilaway/cmd/nilaway@latest
+  run:
+    cmds:
+      - go run cmd/main.go
+  build:
+    cmds:
+      - go build -o dist/swamp-release cmd/main.go
+  lint:
+    cmds:
+      - nilaway -include-pkgs="github.com/okt-limonikas/go-release" ./...
